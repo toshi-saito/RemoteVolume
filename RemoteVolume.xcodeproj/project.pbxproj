@@ -12,6 +12,9 @@
 		F4A918A61C28CD510004CD93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A918A41C28CD510004CD93 /* Main.storyboard */; };
 		F4A918A81C28CD510004CD93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4A918A71C28CD510004CD93 /* Assets.xcassets */; };
 		F4A918AB1C28CD510004CD93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A918A91C28CD510004CD93 /* LaunchScreen.storyboard */; };
+		F4A918B31C28CD920004CD93 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A918B21C28CD920004CD93 /* Peripheral.swift */; };
+		F4A918B71C28CF980004CD93 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A918B61C28CF980004CD93 /* MediaPlayer.framework */; };
+		F4A918BB1C28D7B80004CD93 /* Volume.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A918BA1C28D7B80004CD93 /* Volume.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		F4A918A71C28CD510004CD93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4A918AA1C28CD510004CD93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4A918AC1C28CD510004CD93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A918B21C28CD920004CD93 /* Peripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		F4A918B61C28CF980004CD93 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		F4A918B81C28D7970004CD93 /* Volume.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Volume.h; sourceTree = "<group>"; };
+		F4A918B91C28D7B80004CD93 /* RemoteVolume-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RemoteVolume-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4A918BA1C28D7B80004CD93 /* Volume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Volume.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4A918B71C28CF980004CD93 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +47,7 @@
 		F4A918941C28CD510004CD93 = {
 			isa = PBXGroup;
 			children = (
+				F4A918B61C28CF980004CD93 /* MediaPlayer.framework */,
 				F4A9189F1C28CD510004CD93 /* RemoteVolume */,
 				F4A9189E1C28CD510004CD93 /* Products */,
 			);
@@ -60,6 +70,10 @@
 				F4A918A71C28CD510004CD93 /* Assets.xcassets */,
 				F4A918A91C28CD510004CD93 /* LaunchScreen.storyboard */,
 				F4A918AC1C28CD510004CD93 /* Info.plist */,
+				F4A918B21C28CD920004CD93 /* Peripheral.swift */,
+				F4A918B81C28D7970004CD93 /* Volume.h */,
+				F4A918BA1C28D7B80004CD93 /* Volume.m */,
+				F4A918B91C28D7B80004CD93 /* RemoteVolume-Bridging-Header.h */,
 			);
 			path = RemoteVolume;
 			sourceTree = "<group>";
@@ -136,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4A918A31C28CD510004CD93 /* ViewController.swift in Sources */,
+				F4A918B31C28CD920004CD93 /* Peripheral.swift in Sources */,
 				F4A918A11C28CD510004CD93 /* AppDelegate.swift in Sources */,
+				F4A918BB1C28D7B80004CD93 /* Volume.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +265,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RemoteVolume/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pw.twinsignals.RemoteVolume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RemoteVolume/RemoteVolume-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +280,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = RemoteVolume/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pw.twinsignals.RemoteVolume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RemoteVolume/RemoteVolume-Bridging-Header.h";
 			};
 			name = Release;
 		};

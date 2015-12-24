@@ -31,7 +31,7 @@ class ViewController : UIViewController, UITableViewDelegate, UITableViewDataSou
         manager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    func disconnectAll() {
         for c in list {
             manager?.cancelPeripheralConnection(c.peripheral!)
         }
